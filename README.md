@@ -1,7 +1,5 @@
-Here's a basic, buggy implementation of xmledit for vim. It was inspired
-by [this answer][1] on Stack Overflow. Currently, The cursor isn't placed
-right if the first thing you enter into the file is a tag which this
-plugin completes.
+Here's a basic, buggy HTML tag auto-completer for [vis][2]. It was inspired
+by [this answer][1] on Stack Overflow. 
 
 [1]: https://stackoverflow.com/a/134990 "How can one close HTML tags in Vim quickly?—Stack Overflow"
 
@@ -9,7 +7,7 @@ plugin completes.
 
 - Complete an arbitrary tag with `>` and replace the cursor in the middle
   of the tag
-- ~~with a second closing bracket (typing another `>`---"double-closing"),
+- ~~with a second closing bracket (typing another `>`&mdash;"double-closing"),
   push the closing tag onto the next line and indent~~ temporarily removed
 
 ## Bugs and issues
@@ -22,7 +20,7 @@ plugin completes.
 - [ ] Double-closing tags only places the cursor correctly if the line isn't
   already indented
 - [ ] It doesn't check the syntax of the file to see if it's an html
-  file---it's just always on
+  file&mdash;it's just always on
 - [ ] And more, I'm sure
 
 I created this because I really like the [vis editor][2] and I want to
@@ -30,3 +28,5 @@ contribute what I can to its development, however small that contribution
 may be. I also write HTML most of the time, so I wanted to make something
 that would save me a little typing. I plan to fix some of the bugs listed
 above to make it better to use in real coding.
+
+[2]: https://github.com/martanne/vis "Vis editor on Github"
