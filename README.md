@@ -14,11 +14,19 @@ plugin completes.
 
 ## Bugs and issues
 
+- The cursor isn't placed correctly if a tag is completed on the first
+  line of a brand new file
 - It doesn't know anything about self-closing tags
 - If you add some properties to the tag before closing it, the properties
   will be included in the closing tag, too
 - Double-closing tags only places the cursor correctly if the line isn't
   already indented
+- It doesn't check the syntax of the file to see if it's an html
+  file---it's just always on
+- And more, I'm sure
 
-It's a nice start, though. It could already be useful to someone,
-including me.
+I created this because I really like the [vis editor][2] and I want to
+contribute what I can to its development, however small that contribution
+may be. I also write HTML most of the time, so I wanted to make something
+that would save me a little typing. I plan to fix some of the bugs listed
+above to make it better to use in real coding.
