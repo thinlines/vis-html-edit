@@ -9,21 +9,21 @@ plugin completes.
 
 - Complete an arbitrary tag with `>` and replace the cursor in the middle
   of the tag
-- with a second closing bracket (typing another `>`---"double-closing"),
-  push the closing tag onto the next line and indent
+- ~~with a second closing bracket (typing another `>`---"double-closing"),
+  push the closing tag onto the next line and indent~~ temporarily removed
 
 ## Bugs and issues
 
-- The cursor isn't placed correctly if a tag is completed on the first
+- [x] The cursor isn't placed correctly if a tag is completed on the first
   line of a brand new file
-- It doesn't know anything about self-closing tags
-- If you add some properties to the tag before closing it, the properties
+- [ ] It doesn't know anything about self-closing tags
+- [ ] If you add some properties to the tag before closing it, the properties
   will be included in the closing tag, too
-- Double-closing tags only places the cursor correctly if the line isn't
+- [ ] Double-closing tags only places the cursor correctly if the line isn't
   already indented
-- It doesn't check the syntax of the file to see if it's an html
+- [ ] It doesn't check the syntax of the file to see if it's an html
   file---it's just always on
-- And more, I'm sure
+- [ ] And more, I'm sure
 
 I created this because I really like the [vis editor][2] and I want to
 contribute what I can to its development, however small that contribution

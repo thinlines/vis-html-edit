@@ -9,25 +9,23 @@ vis.events.subscribe(vis.events.INPUT, function(key)
 		vis:info(startpos)
 	end
 	-- if bracket is closed
-	if key == ">" and startpos then -- note pos and add the closing tag
-		local endpos = win.selection.pos
-		-- endcol, endline: used to reset cursor to before the closing tag
-		local endline = win.selection.line
-		local endcol = win.selection.col 
-		local opentag = (vis.win.file:content(startpos, endpos - startpos))..">"
-		local closetag = string.gsub(opentag, "<", "</")
-		file:insert(endpos, ">"..closetag)
-		win.selection:to(endline, endcol+1)
-		vis:info(opentag.. " "..closetag)
-		startpos = nil
-		just_completed = true
-		return true
-	elseif key == ">" and just_completed then
+	if key == ">" and startpos then 
+		-- define the tags
 		local pos = win.selection.pos
-		local mark = file:mark_set(pos)
-		vis:feedkeys("<Enter><Enter>")
-		win.selection.pos = file:mark_get(mark)+1
-		vis:feedkeys("\t")
-		return true
+		local content = vis.win.file:content(startpos, pos - startpos)
+		local opentag = content..">"
+		local closetag = string.gsub(opentag, "<", "</")
+		-- insert the closing tag
+		file:insert(pos, closetag)
+		win.selection.pos = pos + #closetag
+		assert(win.selection.pos == pos + #closetag)
+		-- go back to before the tag
+		local afterpos = win.selection.pos
+		win.selection.pos = afterpos - #closetag
+		startpos = nil
 	end
+end)
+
+vis:map(vis.modes.INSERT, "<F1>", function()
+	vis:info("current position: "..vis.win.selection.pos)
 end)
