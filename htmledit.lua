@@ -4,6 +4,7 @@ require "vis"
 vis.events.subscribe(vis.events.INPUT, function(key)
 	win = vis.win
 	file = vis.win.file
+	if win.syntax ~= "html" then return false end --only work on html files
 	if key == "<" then -- take down its position
 		startpos = win.selection.pos
 		vis:info(startpos)
@@ -30,6 +31,7 @@ vis.events.subscribe(vis.events.INPUT, function(key)
 			vis:feedkeys("<Enter>")
 			win.selection.pos = pos
 			vis:feedkeys("<Tab>")
+			endpos = nil
 			return true
 		else endpos = nil
 		end

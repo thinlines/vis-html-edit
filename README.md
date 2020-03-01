@@ -13,14 +13,16 @@ by [this answer][1] on Stack Overflow.
 ## Bugs and issues
 
 - [x] ~~The cursor isn't placed correctly if a tag is completed on the first
-  line of a brand new file~~
+      line of a brand new file~~
 - [ ] It doesn't know anything about self-closing tags
 - [ ] If you add some properties to the tag before closing it, the properties
-  will be included in the closing tag, too
+      will be included in the closing tag, too
 - [x] ~~Double-closing tags only places the cursor correctly if the line isn't
-  already indented~~
-- [ ] It doesn't check the syntax of the file to see if it's an html
-  file&mdash;it's just always on
+      already indented~~
+- [x] ~~It doesn't check the syntax of the file to see if it's an html
+      file&mdash;it's just always on~~
+- [ ] Hitting backspace doesn't delete the tag if it was just closed
+- [ ] Using this in a macro may cause unexpected results
 - [ ] And more, I'm sure
 
 I created this because I really like the [vis editor][2] and I want to
