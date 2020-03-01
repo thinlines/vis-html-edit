@@ -20,9 +20,19 @@ vis.events.subscribe(vis.events.INPUT, function(key)
 		win.selection.pos = pos + #closetag
 		assert(win.selection.pos == pos + #closetag)
 		-- go back to before the tag
-		local afterpos = win.selection.pos
-		win.selection.pos = afterpos - #closetag
+		endpos = win.selection.pos
+		win.selection.pos = endpos - #closetag
 		startpos = nil
+	elseif endpos then
+		if key == ">" then
+			vis:feedkeys("<Enter>")
+			local pos = win.selection.pos
+			vis:feedkeys("<Enter>")
+			win.selection.pos = pos
+			vis:feedkeys("<Tab>")
+			return true
+		else endpos = nil
+		end
 	end
 end)
 
