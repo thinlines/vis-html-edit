@@ -1,13 +1,14 @@
 require "vis"
 
--- look for the beginning of an opening html tag '<'
 vis.events.subscribe(vis.events.INPUT, function(key)
 	win = vis.win
 	file = vis.win.file
+
 	if win.syntax ~= "html" then return false end --only work on html files
+
+	-- look for the beginning of an opening html tag '<'
 	if key == "<" then -- take down its position
 		startpos = win.selection.pos
-		vis:info(startpos)
 	end
 	-- if it's a closing tag
 	if startpos and key == "/" then
