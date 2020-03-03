@@ -9,8 +9,11 @@ vis.events.subscribe(vis.events.INPUT, function(key)
 		startpos = win.selection.pos
 		vis:info(startpos)
 	end
-	-- if bracket is closed
-	if key == ">" and startpos then 
+	-- if it's a closing tag
+	if startpos and key == "/" then
+		startpos = nil
+	-- if tag is closed
+	elseif key == ">" and startpos then 
 		-- define the tags
 		local pos = win.selection.pos
 		local content = vis.win.file:content(startpos, pos - startpos)

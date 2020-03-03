@@ -14,7 +14,7 @@ by [this answer][1] on Stack Overflow.
 
 - [x] ~~The cursor isn't placed correctly if a tag is completed on the first
       line of a brand new file~~
-- [ ] It doesn't know anything about self-closing tags
+- [x] ~~It doesn't know anything about self-closing tags~~
 - [ ] If you add some properties to the tag before closing it, the properties
       will be included in the closing tag, too
 - [x] ~~Double-closing tags only places the cursor correctly if the line isn't
